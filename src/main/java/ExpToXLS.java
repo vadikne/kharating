@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ExpToXLS {
 
-    public static void expToXLS(List<FinalPlayer> fpList){
+    public static void expToXLS(String path, List<FinalPlayer> fpList){
         HSSFWorkbook workbook = new HSSFWorkbook();
         HSSFSheet sheet = workbook.createSheet("по рейтингу");
         int rowNum = 0;
@@ -31,7 +31,7 @@ public class ExpToXLS {
             System.out.println(pl.toString());
             createSheetHeader(sheet, ++rowNum, pl);
         }
-        try (FileOutputStream out = new FileOutputStream(new File("data\\rating.xls"))) {
+        try (FileOutputStream out = new FileOutputStream(new File(path+"rating.xls"))) {
             workbook.write(out);
         } catch (IOException e) {
             e.printStackTrace();

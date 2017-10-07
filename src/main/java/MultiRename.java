@@ -7,12 +7,12 @@ import java.io.IOException;
 
 public class MultiRename {
     public static void main(String []args) throws ParserConfigurationException, SAXException, IOException {
-       multiRename();
+       // multiRename();
         }
-        public static void multiRename() throws ParserConfigurationException, SAXException, IOException {
+        public static void multiRename(String pathName,String khaCsvFile) throws ParserConfigurationException, SAXException, IOException {
     File[] filesList;
-    String pathName="D:\\\\down\\\\xml\\\\";
-    File newFile= new File(pathName+"1.xml");
+
+    File newFile= new File(pathName+ File.separator+"1.xml");
         if (newFile.exists()){
         AlterImportCsv.delFile(newFile.toString());
     }
@@ -21,7 +21,7 @@ public class MultiRename {
     for(int i=0; i<filesList.length; i++) {
         System.out.println(filesList[i].getName());
         filesList[i].renameTo(newFile);
-        AlterCompareKhaAndXml.main();
+        AlterCompareKhaAndXml.main(newFile.toString(),khaCsvFile);
         AlterImportCsv.delFile(newFile.toString());
         }
     }

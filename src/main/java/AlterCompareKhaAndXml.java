@@ -9,12 +9,12 @@ import java.util.List;
 
 public class AlterCompareKhaAndXml {
     public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
-        main();
+      //  main();
     }
 
-    public static void main() throws IOException, SAXException, ParserConfigurationException {
-        List<Player> playerList=ImportXml.impXml("D:\\\\down\\\\xml\\\\1.xml");
-        List<Player> khaPlayers=AlterReadRateKha.alterKhaRate("D:\\\\down\\\\csv\\\\kharkov.csv");
+    public static void main(String xmlFile, String khaCsvFile) throws IOException, SAXException, ParserConfigurationException {
+        List<Player> playerList=ImportXml.impXml(xmlFile);
+        List<Player> khaPlayers=AlterReadRateKha.alterKhaRate(khaCsvFile);
         List<Player> newPlayers = new ArrayList<>();
 
        for (Player playerXml : playerList){
@@ -28,7 +28,7 @@ public class AlterCompareKhaAndXml {
          }
          if (!b) newPlayers.add(playerXml);
        }
-       OutputStream os = new FileOutputStream("D:\\\\down\\\\csv\\\\kharkov.csv",true);
+       OutputStream os = new FileOutputStream(khaCsvFile,true);
        for (Player pl : newPlayers) {
            String string = ";"+pl.getName() + ";" + pl.getRegion()+", "+pl.getLocation()+"\n";
            os.write( string.getBytes("Cp1251") );

@@ -6,13 +6,13 @@ import java.io.*;
 public class DelQuest {
     //public static void main(String[] args) {
 
-    public static void main() {
-
+    public static void main(String csvPath, String csvFile) {
+        String tempFile=csvPath+"rating1.csv";
         BufferedReader buff = null;
         BufferedWriter buffOut = null;
             try {
-                buff = new BufferedReader(new InputStreamReader(new FileInputStream(FinalStatic.csvFile), "windows-1251"));
-                buffOut = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("D:\\\\down\\\\rating1.csv"), "cp1251"));
+                buff = new BufferedReader(new InputStreamReader(new FileInputStream(csvFile), "windows-1251"));
+                buffOut = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(tempFile), "cp1251"));
                 while (true) {
                     String line = buff.readLine();
                     if (line == null) break;
@@ -30,7 +30,7 @@ public class DelQuest {
                     e1.printStackTrace();
                 }
             }
-        AlterImportCsv.changeFile(FinalStatic.csvFile,"D:\\\\down\\\\rating1.csv");
+        AlterImportCsv.changeFile(csvFile,tempFile);
     }
 }
 

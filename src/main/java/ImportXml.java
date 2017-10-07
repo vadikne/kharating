@@ -16,9 +16,9 @@ import java.util.List;
 
 public class ImportXml {
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException{
-
-        List <Player> playerList=impXml("D:\\\\down\\\\xml\\\\1.xml");
-        for (Player pl:playerList) System.out.println(pl);
+////
+   ////     List <Player> playerList=impXml("D:\\\\down\\\\xml\\\\1.xml");
+   ////     for (Player pl:playerList) System.out.println(pl);
     }
 
 public static List impXml(String filePath) throws ParserConfigurationException, IOException, SAXException{
